@@ -15,17 +15,15 @@ int main(void)
 	int num4;
 
 	i = 0;
-
 	while (i <= 99)
 	{
 		j = i;
-		while (j <= 99) 
+		while (j <= 99)
 		{
 			num1 = i / 10;
 			num2 = i % 10;
 			num3 = j / 10;
 			num4 = j % 10;
-
 			if (i != j)
 			{
 				putchar(num1 + '0');
@@ -33,7 +31,6 @@ int main(void)
 				putchar(' ');
 				putchar(num3 + '0');
 				putchar(num4 + '0');
-
 				if (i != 98 || j != 99)
 				{
 					putchar(',');
