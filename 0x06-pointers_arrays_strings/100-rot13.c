@@ -11,19 +11,22 @@ char *rot13(char *str)
 {
 	int i, j;
 	char *result = str;
+	char letter[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		j = str[i] - 'a';
-		if (j >= 0 && j <= 25)
+		for (j = 0; j < 52; j++)
 		{
-			result[i] = (j + 13) % 26 + 'a';
-		}
-		else
-		{
-			result[i] = str[i];
+			if (str[i] == letter[j])
+			{
+				str[i] = rot13[j];
+				break;
+			}
 		}
 	}
-	result[i] = '\0';
 	return (result);
 }
+
+
+
