@@ -7,24 +7,23 @@
  *
  * Return: result, which is the modified string
  */
-
 char *rot13(char *str)
 {
 	int i, j;
 	char *result = str;
-	char letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; j < 52; j++)
+		j = str[i] - 'a';
+		if (j >= 0 && j <= 25)
 		{
-			if (str[i] == letters[j])
-			{
-				str[i] = rot13[j];
-			}
+			result[i] = (j + 13) % 26 + 'a';
+		}
+		else
+		{
+			result[i] = str[i];
 		}
 	}
+	result[i] = '\0';
 	return (result);
 }
-
